@@ -8,7 +8,7 @@ class CommandBase {
         if (commandFunction != null)
             commandFunction();
 
-        console.log('Run command');
+        console.log(`Successfully ran "!${command}" command.`);
     }
 }
 
