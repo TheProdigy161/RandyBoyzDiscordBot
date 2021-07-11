@@ -1,10 +1,6 @@
 const CommandBase = require('../base/commandBase');
 
-class Ping extends CommandBase {
-  // Initialise command
-  // Run command
-  // Log command
-
+class PingCommand extends CommandBase {
   constructor(message) {
     super();
     this.run(message, 'ping', () => {
@@ -13,4 +9,4 @@ class Ping extends CommandBase {
   }
 }
 
-module.exports = Ping;
+module.exports = PingCommand;

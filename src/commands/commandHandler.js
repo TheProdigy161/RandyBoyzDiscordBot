@@ -1,14 +1,15 @@
-const Ping = require('./fun/ping.js');
+const PingCommand = require('./fun/ping.js');
 
 class CommandHandler {
     constructor(client) {
         this.client = client;
         this.setupCommands();
     }
-
+    
+    // Setup all commands for the bot.
     setupCommands() {
         this.client.on('message', (message) => {
-            new Ping(message);
+            new PingCommand(message);
         });
     }
 }
