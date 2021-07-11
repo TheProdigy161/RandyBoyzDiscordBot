@@ -2,21 +2,21 @@
 	"extends": "eslint:recommended",
 	"env": {
 		"node": true,
-		"es6": true
+		"es2020": true
 	},
 	"parserOptions": {
-		"ecmaVersion": 2019
+		"ecmaVersion": 2021
 	},
 	"rules": {
-		"brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
+		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
 		"comma-dangle": ["error", "always-multiline"],
 		"comma-spacing": "error",
 		"comma-style": "error",
-		"curly": ["error", "multi-line", "consistent"],
+		"curly": ["off", "multi-line", "consistent"],
 		"dot-location": ["error", "property"],
 		"handle-callback-err": "off",
-		"indent": ["error", "tab"],
-		"max-nested-callbacks": ["error", { "max": 4 }],
+		"indent": ["off", "tab"],
+		"max-nested-callbacks": ["error", { "max": 6 }],
 		"max-statements-per-line": ["error", { "max": 2 }],
 		"no-console": "off",
 		"no-empty-function": "error",
@@ -26,7 +26,7 @@
 		"no-multi-spaces": "error",
 		"no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1, "maxBOF": 0 }],
 		"no-shadow": ["error", { "allow": ["err", "resolve", "reject"] }],
-		"no-trailing-spaces": ["error"],
+		"no-trailing-spaces": ["off"],
 		"no-var": "error",
 		"object-curly-spacing": ["error", "always"],
 		"prefer-const": "error",
