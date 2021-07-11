@@ -1,4 +1,3 @@
-// const { Client } = require('discord.js');
 const Ping = require('./fun/ping.js');
 
 class CommandHandler {
