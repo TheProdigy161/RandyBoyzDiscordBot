@@ -1,0 +1,26 @@
+{
+  "name": "RandyBoyzDiscordBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheProdigy161/RandyBoyzDiscordBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheProdigy161/RandyBoyzDiscordBot/issues"
+  },
+  "homepage": "https://github.com/TheProdigy161/RandyBoyzDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0"
+  }
+}
