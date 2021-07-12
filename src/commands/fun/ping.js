@@ -7,11 +7,9 @@ class PingCommand extends CommandBase {
     constructor(message) {
         super(commandName, commandDescription, message);
 
-        if (this.message != null) {
-            this.run(() => {
-                this.message.channel.send('Pong!');
-            });
-        }
+        this.run(() => {
+            this.message.channel.send('Pong!');
+        });
     }
 }
 

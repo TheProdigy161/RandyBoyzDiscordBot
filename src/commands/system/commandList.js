@@ -6,7 +6,7 @@ const commandName = 'commands';
 const commandDescription = 'Lists all available commands.';
 
 class CommandListCommand extends CommandBase {
-    constructor(message = null) {
+    constructor(message) {
         super(commandName, commandDescription, message);
 
         this.run(() => {

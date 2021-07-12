@@ -4,7 +4,7 @@ const commandName = 'github';
 const commandDescription = 'Links the github of the bot.';
 
 class GithubCommand extends CommandBase {
-    constructor(message = null) {
+    constructor(message) {
         super(commandName, commandDescription, message);
 
         this.run(() => {
