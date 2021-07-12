@@ -1,4 +1,5 @@
 const PingCommand = require('./fun/ping.js');
+const RandomNumberCommand = require('./misc/randomNumber.js');
 const CommandListCommand = require('./system/commandList.js');
 const GithubCommand = require('./system/github.js');
 
@@ -13,6 +14,7 @@ class CommandHandler {
         this.client.on('message', (message) => {
             new PingCommand(message);
             new GithubCommand(message);
+            new RandomNumberCommand(message);
             new CommandListCommand(message);
         });
     }
