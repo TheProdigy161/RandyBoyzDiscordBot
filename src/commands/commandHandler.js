@@ -1,5 +1,6 @@
 const PingCommand = require('./fun/ping.js');
 const CommandListCommand = require('./system/commandList.js');
+const GithubCommand = require('./system/github.js');
 
 class CommandHandler {
     constructor(client) {
@@ -11,6 +12,7 @@ class CommandHandler {
     setupCommands() {
         this.client.on('message', (message) => {
             new PingCommand(message);
+            new GithubCommand(message);
             new CommandListCommand(message);
         });
     }
