@@ -8,7 +8,7 @@ class EventHandler {
 
     // Setup all events for the bot.
     setupEvents() {
-        this.client.once('ready', async () => {
+        this.client.on('ready', async () => {
             await new StartupEvent(this.client).run();
         });
     }

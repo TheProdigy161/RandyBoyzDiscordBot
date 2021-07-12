@@ -1,12 +1,17 @@
 const CommandBase = require('../base/commandBase');
+
 const commandName = 'ping';
+const commandDescription = 'Replies with the message "Pong!".';
 
 class PingCommand extends CommandBase {
     constructor(message) {
-        super(message, commandName);
-        this.run(() => {
-            this.message.channel.send('Pong!');
-        });
+        super(commandName, commandDescription, message);
+
+        if (this.message != null) {
+            this.run(() => {
+                this.message.channel.send('Pong!');
+            });
+        }
     }
 }
 

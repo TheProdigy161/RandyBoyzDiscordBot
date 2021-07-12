@@ -1,18 +1,23 @@
+const CommandListStore = require('./commandListStore');
+
 class CommandBase {
-    constructor(message, command) {
+    constructor(commandName, commandDescription, message = null) {
         this.message = message;
-        this.command = command;
+        this.commandName = commandName;
+        this.commandDescription = commandDescription;
+
+        CommandListStore.tryAddToStore(this);
     }
 
     // Runs the command.
     run(commandFunction = null) {
-        if (this.message.content != `!${this.command}`)
+        if (this.message.content != `!${this.commandName}`)
             return;
 
         if (commandFunction != null)
             commandFunction();
 
-        console.log(`Successfully ran "!${this.command}" command.`);
+        console.log(`Successfully ran "!${this.commandName}" command.`);
     }
 }
 
