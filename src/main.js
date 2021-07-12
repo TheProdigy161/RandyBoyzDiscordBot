@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config('../.env');
+
 const Discord = require('discord.js');
 const discordClient = new Discord.Client();
 const CommandHandler = require('./commands/commandHandler.js');

@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/TheProdigy161/RandyBoyzDiscordBot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "eslint": "^7.30.0"
