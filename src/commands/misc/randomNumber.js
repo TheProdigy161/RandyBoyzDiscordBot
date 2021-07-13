@@ -1,6 +1,7 @@
 const CommandBase = require('../base/commandBase');
 const commandName = 'rand';
 const commandDescription = 'Generates a random number between the two values provided. Default 1 - 100.';
+const maxParams = 2;
 
 class RandomNumberCommand extends CommandBase {
     constructor(message) {
@@ -10,7 +11,12 @@ class RandomNumberCommand extends CommandBase {
             if (params.length > 0 && params.some(x => isNaN(parseInt(x)))) {
                 this.message.channel.send('Please provide two numbers');
                 return;
-            } else {
+            }
+            
+            if (params.length > maxParams) {
+                this.message.channel.send(`Too many parameters provided. Only ${maxParams} parameters required.`);
+                return;
+            } else if (params.length == 0) {
                 params = [1, 100];
             }
 
