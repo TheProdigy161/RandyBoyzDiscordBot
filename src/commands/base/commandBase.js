@@ -19,9 +19,11 @@ class CommandBase {
     // Runs the command.
     run(commandFunction = null) {
         if (this.paramDelimiter != null) {
-            const paramString = this.message.content.replace(`!${this.commandName}`, '').replace(/\s/g, '');
-            if (paramString)
+            const paramString = this.message.content.replace(`!${this.commandName}`, '').replace(/\s+/g, ' ').trim();
+            if (paramString.includes(this.paramDelimiter))
                 this.params = paramString.split(this.paramDelimiter);
+            else if (paramString.includes(' '))
+                this.params = paramString.split(' ');
         }
 
         if (commandFunction != null)
