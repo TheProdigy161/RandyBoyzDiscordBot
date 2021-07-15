@@ -6,27 +6,31 @@ const commandName = 'commands';
 const commandDescription = 'Lists all available commands.';
 
 class CommandListCommand extends CommandBase {
-    constructor(message) {
-        super(commandName, commandDescription, message);
+    constructor() {
+        super(commandName, commandDescription);
+    }
 
-        this.run(() => {
-            const embeddedMessage = new MessageEmbed();
-            embeddedMessage.setTitle('Command List:');
-            
-            // Setup command list.
-            let description = '';
+    execute() {
+        this.run(this.#logic());
+    }
 
-            CommandListStore.sortCommandNames();
-            CommandListStore.commands.forEach((command, index) => {
-                description += `**!${command.commandName}** - ${command.commandDescription}`;
+    #logic() {
+        const embeddedMessage = new MessageEmbed();
+        embeddedMessage.setTitle('Command List:');
+        
+        // Setup command list.
+        let description = '';
 
-                if (index != CommandListStore.commands.length - 1)
-                    description += '\n';
-            });
-            
-            embeddedMessage.setDescription(description);
-            this.message.channel.send(embeddedMessage);
+        CommandListStore.sortCommandNames();
+        CommandListStore.commands.forEach((command, index) => {
+            description += `**!${command.commandName}** - ${command.commandDescription}`;
+
+            if (index != CommandListStore.commands.length - 1)
+                description += '\n';
         });
+        
+        embeddedMessage.setDescription(description);
+        this.message.channel.send(embeddedMessage);
     }
 }
 

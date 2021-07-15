@@ -4,12 +4,16 @@ const commandName = 'ping';
 const commandDescription = 'Replies with the message "Pong!".';
 
 class PingCommand extends CommandBase {
-    constructor(message) {
-        super(commandName, commandDescription, message);
+    constructor() {
+        super(commandName, commandDescription);
+    }
 
-        this.run(() => {
-            this.message.channel.send('Pong!');
-        });
+    execute() {
+        this.run(this.#logic());
+    }
+
+    #logic() {
+        this.message.channel.send('Pong!');
     }
 }
 

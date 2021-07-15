@@ -7,15 +7,27 @@ class CommandHandler {
     constructor(client) {
         this.client = client;
         this.setupCommands();
+        this.setupClient();
     }
     
-    // Setup all commands for the bot.
     setupCommands() {
+        this.pingCommand = new PingCommand();
+        this.githubCommand = new GithubCommand();
+        this.randomNumberCommand = new RandomNumberCommand();
+        this.commandListCommand = new CommandListCommand();
+    }
+
+    // Setup all commands for the bot.
+    setupClient() {
         this.client.on('message', (message) => {
-            new PingCommand(message);
-            new GithubCommand(message);
-            new RandomNumberCommand(message);
-            new CommandListCommand(message);
+            if (this.pingCommand.isMatch(message))
+                this.pingCommand.execute();
+            else if (this.githubCommand.isMatch(message))
+                this.githubCommand.execute();
+            else if (this.randomNumberCommand.isMatch(message))
+                this.randomNumberCommand.execute();
+            else if (this.commandListCommand.isMatch(message))
+                this.commandListCommand.execute();
         });
     }
 }

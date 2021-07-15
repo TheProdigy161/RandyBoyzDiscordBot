@@ -1,8 +1,7 @@
 const CommandListStore = require('./commandListStore');
 
 class CommandBase {
-    constructor(commandName, commandDescription, message, paramDelimiter = null) {
-        this.message = message;
+    constructor(commandName, commandDescription, paramDelimiter = ',') {
         this.commandName = commandName;
         this.commandDescription = commandDescription;
 
@@ -12,11 +11,13 @@ class CommandBase {
         CommandListStore.tryAddToStore(this);
     }
 
+    isMatch(message) {
+        this.message = message;
+        return this.message.content.startsWith(`!${this.commandName}`)
+    }
+
     // Runs the command.
     run(commandFunction = null) {
-        if (!this.message.content.startsWith(`!${this.commandName}`))
-            return;
-
         if (this.paramDelimiter != null) {
             const paramString = this.message.content.replace(`!${this.commandName}`, '').replace(/\s/g, '');
             if (paramString)

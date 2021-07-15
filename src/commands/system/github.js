@@ -4,12 +4,16 @@ const commandName = 'github';
 const commandDescription = 'Links the github of the bot.';
 
 class GithubCommand extends CommandBase {
-    constructor(message) {
-        super(commandName, commandDescription, message);
+    constructor() {
+        super(commandName, commandDescription);
+    }
 
-        this.run(() => {
-            this.message.channel.send('https://github.com/TheProdigy161/RandyBoyzDiscordBot');
-        });
+    execute() {
+        this.run(this.#logic());
+    }
+
+    #logic() {
+        this.message.channel.send('https://github.com/TheProdigy161/RandyBoyzDiscordBot');
     }
 }
 
